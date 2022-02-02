@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Menus/FadeIn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/UI/TextBoxes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Template Objects/Exit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/UI/CursorArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Places/TemplateScene.gd" type="Script" id=5]
+[ext_resource path="res://Assets/SoundFX/Calm Ocean Breeze Simulated.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SoundFX/Room with Buzz Incandescent Light Bulb.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Music/Temporary Main Music.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Assets/LocationSprites/Hall.png" type="Texture" id=9]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+place_name = "HallScene"
+file_path = "res://Scenes/Places/HallScene.tscn"
+default_sense_text = "A long hall. The carpet is blue but faded and scuffed from years of tired, shuffling feet. There are lines and arcs of absent pigment in front of the doors and in rivulets down the hall. The incandescent lights are always on and there are no windows. The room feels timeless because of it."
+default_thoughts_text = "I wonder if anyone else is up. Maybe they have coffee on downstairs."
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 859.692, 400 )
+scale = Vector2( 0.85379, 0.8 )
+texture = ExtResource( 9 )
+
+[node name="TextBoxes" parent="." instance=ExtResource( 2 )]
+margin_left = -1.48651
+margin_top = -1.06
+margin_right = -1.48651
+margin_bottom = -1.06
+
+[node name="CursorArea" parent="." instance=ExtResource( 4 )]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+pitch_scale = 1.3
+
+[node name="StairsDown" parent="." instance=ExtResource( 3 )]
+position = Vector2( 860.24, 262.294 )
+scale = Vector2( 0.6, 0.5 )
+blocked = true
+exit_name = "StairsDown"
+destination = " "
+blocked_senses_text = "When you move towards the stairwell your stomach grows cold. Something's wrong. You feel something invisible tighten against your skin."
+blocked_thoughts_text = "There's nothing there. It's just dark and quiet, don't be so scared. Just keep moving."
+
+[node name="BuzzNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+autoplay = true
+
+[node name="OceanNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+autoplay = true
+
+[node name="HallDoor1L" parent="." instance=ExtResource( 3 )]
+position = Vector2( 545.578, 312.027 )
+scale = Vector2( 1.10993, 4 )
+blocked = true
+exit_name = "HallDoor1L"
+destination = " "
+blocked_senses_text = " []'s door. It's quiet. "
+blocked_thoughts_text = "  Probably still asleep."
+
+[node name="HallDoor2L" parent="." instance=ExtResource( 3 )]
+position = Vector2( 728.371, 274.234 )
+scale = Vector2( 0.426895, 1.6 )
+blocked = true
+exit_name = "HallDoor2L"
+destination = " "
+blocked_senses_text = " This room is empty."
+blocked_thoughts_text = "They must keep the unoccupied rooms locked."
+
+[node name="HallDoor1R" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1171.53, 313.586 )
+scale = Vector2( 1.10993, 4 )
+blocked = true
+exit_name = "HallDoor1R"
+destination = " "
+blocked_senses_text = " []'s room. It sounds like someone is talking inside."
+blocked_thoughts_text = "Huh, is [] talking to themselves or is that just the TV?"
+
+[node name="HallDoor2R" parent="." instance=ExtResource( 3 )]
+position = Vector2( 991.859, 273.438 )
+scale = Vector2( 0.426895, 1.6 )
+blocked = true
+exit_name = "HallDoor2R"
+destination = " "
+blocked_senses_text = " [the handyman]'s room. A loud snoring sound is muffled by the door."
+blocked_thoughts_text = " Definitely still alseep."
+
+[node name="FadeIn" parent="." instance=ExtResource( 1 )]
+margin_right = 1500.0
+margin_bottom = 1000.0
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

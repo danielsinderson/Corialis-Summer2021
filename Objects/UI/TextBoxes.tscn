@@ -1,0 +1,208 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/Volkhorn_14.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Objects/UI/DialogueText.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="Animation" id=2]
+resource_name = "HideText"
+length = 0.01
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SensesText:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Metacognition/ThoughtsText:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Dialogue/DialogueText:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("SensesText:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ThoughtsText:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("DialogueText:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="TextBoxes" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.5
+margin_top = -1.42041
+margin_right = -0.5
+margin_bottom = -1.42041
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Senses" type="Panel" parent="."]
+margin_left = 0.702332
+margin_top = 1.69661
+margin_right = 219.902
+margin_bottom = 501.697
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SensesText" type="RichTextLabel" parent="Senses"]
+margin_left = 4.0
+margin_top = 7.0
+margin_right = 216.0
+margin_bottom = 497.0
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Huh  what's  with  the spaces  here?"
+text = "Huh  what's  with  the spaces  here?"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SensesAnimation" type="AnimationPlayer" parent="Senses"]
+anims/HideText = SubResource( 2 )
+anims/SenseTextAnim = SubResource( 3 )
+
+[node name="Metacognition" type="Panel" parent="."]
+margin_left = 1.0
+margin_top = 501.0
+margin_right = 220.2
+margin_bottom = 1001.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThoughtsText" type="RichTextLabel" parent="Metacognition"]
+margin_left = 4.0
+margin_top = 4.42041
+margin_right = 216.0
+margin_bottom = 494.42
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Another test, yeesh."
+visible_characters = 0
+percent_visible = 0.0
+text = "Another test, yeesh."
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ThoughtsAnimation" type="AnimationPlayer" parent="Metacognition"]
+anims/ThoughtsTextAnim = SubResource( 4 )
+
+[node name="Dialogue" type="Panel" parent="."]
+margin_left = 220.2
+margin_top = 801.42
+margin_right = 1504.2
+margin_bottom = 1001.42
+rect_min_size = Vector2( 896, 0 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueText" type="RichTextLabel" parent="Dialogue"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1276.0
+margin_bottom = 195.0
+custom_fonts/mono_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Testing "
+text = "Testing "
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueAnimation" type="AnimationPlayer" parent="Dialogue"]
+anims/DialogueTextAnim = SubResource( 6 )

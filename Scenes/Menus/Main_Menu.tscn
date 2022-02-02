@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Menus/Main_Menu.gd" type="Script" id=1]
+[ext_resource path="res://Objects/UI/CursorArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/SoundFX/button_click_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SoundFX/OpeningTestNoise.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/TitleScreen/PlaceHolderSmall.png" type="Texture" id=5]
+[ext_resource path="res://Assets/TitleScreen/Non_Selected_Theme.tres" type="StyleBox" id=6]
+[ext_resource path="res://Assets/TitleScreen/Selected_Button_Theme.tres" type="StyleBox" id=7]
+[ext_resource path="res://Assets/Fonts/Volkhorn_14.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Assets/Fonts/letter-sketch-font/Lettersketch-ow1wV.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 10 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.002
+anchor_bottom = 1.0
+margin_top = 4.0
+margin_right = -3.0
+margin_bottom = 4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_top = -3.83767
+margin_right = 1500.0
+margin_bottom = 996.162
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleStandIn" type="Label" parent="."]
+margin_left = 853.172
+margin_top = 185.414
+margin_right = 1069.17
+margin_bottom = 230.414
+rect_scale = Vector2( 1, 2.96 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "TEST TITLE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -52.0
+margin_right = 79.0
+margin_bottom = -12.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ContinueButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -20.0
+margin_right = 79.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_y = 3
+text = "Continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 76.0
+margin_right = 64.0
+margin_bottom = 116.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/normal = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="QuitButton"]
+margin_right = 128.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = 12.0
+margin_right = 83.0
+margin_bottom = 52.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NewGameButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -20.0
+margin_right = 81.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_y = 3
+text = "New Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="MenuNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="CursorArea" parent="." instance=ExtResource( 2 )]
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_ContinueButton_button_up"]
+[connection signal="button_up" from="QuitButton" to="." method="_on_QuitButton_button_up"]
+[connection signal="button_up" from="NewGameButton" to="." method="_on_NewGameButton_button_up"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/test_character_click.mp3-2c67847bec998410dcf0e592bed86a6e.mp3str"
+
+[deps]
+
+source_file="res://Assets/SoundFX/test_character_click.mp3"
+dest_files=[ "res://.import/test_character_click.mp3-2c67847bec998410dcf0e592bed86a6e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
